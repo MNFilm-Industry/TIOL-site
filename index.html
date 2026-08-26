@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TIOL-Image-Manager · 智能图片管理工具</title>
+    <title>TIOL-Image-Manager · Tag & Search</title>
     <style>
         * {
             margin: 0;
@@ -31,7 +31,7 @@
             box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
         }
 
-        /* ---------- 头部 ---------- */
+        /* ---------- Header ---------- */
         .header {
             text-align: center;
             padding-bottom: 24px;
@@ -63,7 +63,7 @@
             color: #aab7c9;
         }
 
-        /* ---------- 示例图片 ---------- */
+        /* ---------- Screenshot ---------- */
         .screenshot {
             margin: 12px 0 32px 0;
             text-align: center;
@@ -79,7 +79,7 @@
             margin: 0 auto;
         }
 
-        /* ---------- 功能介绍 ---------- */
+        /* ---------- Features (updated) ---------- */
         .features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -114,7 +114,7 @@
             line-height: 1.5;
         }
 
-        /* ---------- 下载卡片 ---------- */
+        /* ---------- Download Cards ---------- */
         .download-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -179,7 +179,7 @@
             background: #0e3a96;
         }
 
-        /* ---------- 信息区块 ---------- */
+        /* ---------- Info Section ---------- */
         .info-section {
             border-top: 1px solid #edf0f5;
             padding-top: 28px;
@@ -214,7 +214,7 @@
             margin-top: 6px;
         }
 
-        /* ---------- 页脚 ---------- */
+        /* ---------- Footer ---------- */
         .footer {
             margin-top: 36px;
             text-align: center;
@@ -236,7 +236,7 @@
             text-decoration: underline;
         }
 
-        /* ---------- 响应式 ---------- */
+        /* ---------- Responsive ---------- */
         @media (max-width: 720px) {
             .container {
                 padding: 28px 18px;
@@ -305,73 +305,73 @@
 </head>
 <body>
 
-    <!-- 主容器 -->
+    <!-- Main Container -->
     <div class="container">
 
-        <!-- 头部 -->
+        <!-- Header -->
         <div class="header">
             <h1>📸 TIOL‑Image‑Manager</h1>
-            <div class="tagline">智能管理你的图片库，让整理变得简单</div>
+            <div class="tagline">Tag, search, and manage your image library with ease</div>
             <div class="version" id="verText">
-                <span class="loading">读取版本中…</span>
+                <span class="loading">Loading version…</span>
             </div>
         </div>
 
-        <!-- 示例图片 -->
+        <!-- Screenshot -->
         <div class="screenshot">
-            <img src="example.png" alt="TIOL-Image-Manager 界面预览" />
+            <img src="example.png" alt="TIOL-Image-Manager interface preview" />
         </div>
 
-        <!-- 功能介绍（通俗易懂） -->
+        <!-- Feature Highlights (updated: Tagging, Search by Tags, Lightweight & Cross-platform) -->
         <div class="features">
             <div class="feature-item">
-                <span class="icon">📂</span>
-                <h4>轻松整理</h4>
-                <p>自动扫描并归类你的图片，按日期、地点或主题智能分组，告别杂乱无章。</p>
+                <span class="icon">🏷️</span>
+                <h4>Tag Your Images</h4>
+                <p>Add custom keywords to any photo. Build your own library structure with flexible tagging.</p>
             </div>
             <div class="feature-item">
                 <span class="icon">🔍</span>
-                <h4>快速查找</h4>
-                <p>用自然语言描述你想找的图片，比如“去年夏天的海滩”，就能立刻找到。</p>
+                <h4>Search by Tags</h4>
+                <p>Instantly filter your collection using tags, dates, or filenames. Find what you need in seconds.</p>
             </div>
             <div class="feature-item">
-                <span class="icon">🧹</span>
-                <h4>智能去重</h4>
-                <p>自动识别相似或重复的照片，帮你释放存储空间，只保留最精彩的那一张。</p>
+                <span class="icon">⚡</span>
+                <h4>Lightweight & Cross‑Platform</h4>
+                <p>Small, fast, and portable. Works on Windows and macOS without heavy dependencies.</p>
             </div>
         </div>
 
-        <!-- 下载卡片 -->
-        <h3 style="font-weight:600; font-size:18px; margin-bottom:12px; color:#0b1e3a;">⬇️ 下载最新版本</h3>
+        <!-- Download Section -->
+        <h3 style="font-weight:600; font-size:18px; margin-bottom:12px; color:#0b1e3a;">⬇️ Download the latest version</h3>
         <div class="download-grid">
             <!-- Windows -->
             <div class="card">
                 <h3>Windows x64</h3>
                 <span class="file-name" id="winFile">—</span>
                 <br />
-                <a id="winBtn" class="btn" href="#" download>下载</a>
+                <a id="winBtn" class="btn" href="#" download>Download</a>
             </div>
             <!-- macOS -->
             <div class="card">
                 <h3>macOS arm64</h3>
                 <span class="file-name" id="macFile">—</span>
                 <br />
-                <a id="macBtn" class="btn" href="#" download>下载</a>
+                <a id="macBtn" class="btn" href="#" download>Download</a>
             </div>
         </div>
 
-        <!-- 信息 -->
+        <!-- Information / Changelog -->
         <div class="info-section">
-            <h3>📋 更新日志</h3>
+            <h3>📋 Changelog</h3>
             <p>
-                完整更新记录请查看
+                Check the full release notes on
                 <a href="https://github.com/sclass53/TIOL-Image-Manager/releases" target="_blank" rel="noopener">
                     GitHub Releases
                 </a>
-                。
+                .
             </p>
             <p class="repo-link">
-                📂 项目仓库：
+                📂 Repository:
                 <a href="https://github.com/sclass53/TIOL-Image-Manager" target="_blank" rel="noopener">
                     github.com/sclass53/TIOL-Image-Manager
                 </a>
@@ -380,16 +380,16 @@
 
     </div>
 
-    <!-- 页脚 -->
+    <!-- Footer -->
     <div class="footer">
         TIOL‑Image‑Manager &nbsp;·&nbsp;
-        托管于
+        Hosted on
         <a href="https://github.com/MNFilm-Industry/TIOL-site" target="_blank" rel="noopener">
-            TIOL‑site 仓库
+            TIOL‑site repository
         </a>
     </div>
 
-    <!-- ===== 脚本 ===== -->
+    <!-- ===== Script ===== -->
     <script>
         (function() {
             const WIN_ZIP = 'TIOL-win64-portable.zip';
@@ -402,38 +402,38 @@
             const winBtn = document.getElementById('winBtn');
             const macBtn = document.getElementById('macBtn');
 
-            // 设置下载链接
+            // Set download links
             winBtn.href = '/releases/latest/' + WIN_ZIP;
             winBtn.download = WIN_ZIP;
             macBtn.href = '/releases/latest/' + MAC_ZIP;
             macBtn.download = MAC_ZIP;
 
-            // 显示文件名
+            // Show filenames
             winFileEl.textContent = WIN_ZIP;
             macFileEl.textContent = MAC_ZIP;
 
-            // 加载版本信息
+            // Fetch version info
             async function fetchVersion() {
                 try {
                     const resp = await fetch(VERSION_URL, { cache: 'no-cache' });
                     if (!resp.ok) throw new Error('HTTP ' + resp.status);
                     const data = await resp.json();
 
-                    let label = data.tag || data.version || '未知版本';
+                    let label = data.tag || data.version || 'Unknown version';
                     if (data.updated) {
                         let dateStr = '';
                         try {
                             const d = new Date(data.updated);
                             if (!isNaN(d)) {
-                                dateStr = d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'short', day: 'numeric' });
+                                dateStr = d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
                             }
                         } catch (_) { /* ignore */ }
                         if (dateStr) label += ' · ' + dateStr;
                     }
                     verEl.textContent = label;
                 } catch (_) {
-                    verEl.textContent = '⚠️ 版本加载失败';
-                    console.warn('[TIOL] version.json 加载失败');
+                    verEl.textContent = '⚠️ Failed to load version';
+                    console.warn('[TIOL] version.json fetch failed');
                 }
             }
 
