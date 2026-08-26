@@ -59,6 +59,22 @@
             color: #9aa6b5;
         }
 
+        /* ---------- 示例图片 ---------- */
+        .screenshot {
+            margin: 12px 0 28px 0;
+            text-align: center;
+        }
+
+        .screenshot img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid #e2e7ed;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            display: block;
+            margin: 0 auto;
+        }
+
         /* ---------- 下载卡片 (双列) ---------- */
         .download-grid {
             display: grid;
@@ -251,6 +267,10 @@
                 padding: 9px 16px;
                 min-width: 100px;
             }
+
+            .screenshot {
+                margin: 8px 0 20px 0;
+            }
         }
     </style>
 </head>
@@ -265,6 +285,11 @@
             <div class="version" id="verText">
                 <span class="loading">读取版本中…</span>
             </div>
+        </div>
+
+        <!-- 示例图片 -->
+        <div class="screenshot">
+            <img src="example.png" alt="TIOL-Image-Manager 界面预览" />
         </div>
 
         <!-- 下载卡片 -->
