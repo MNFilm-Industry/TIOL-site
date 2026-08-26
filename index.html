@@ -1,64 +1,97 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh‑CN">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>TIOL-Image-Manager v0.1.1 官方下载</title>
+<meta charset="UTF‑8" />
+<meta name="viewport" content="width=device‑width, initial‑scale=1.0"/>
+<title>TIOL‑Image‑Manager 官方下载</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto}
-body{background:#f7f8fa;color:#1f2937;padding:48px 20px;max-width:860px;margin:0 auto}
-header{text-align:center;margin-bottom:48px}
-h1{font-size:38px;margin-bottom:10px}
-.subtitle{color:#6b7280;font-size:18px;margin-bottom:24px}
-.download-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:48px}
-@media(max-width:600px){.download-wrap{grid-template-columns:1fr}}
-.download-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:32px 28px;text-align:center}
-.download-card h3{margin-bottom:14px;font-size:20px}
-.download-card .file-info{color:#6b7280;font-size:15px;margin-bottom:24px;line-height:1.5}
-.dl-btn{display:inline-block;padding:12px 32px;background:#2563eb;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:16px}
-.dl-btn:hover{background:#1d4ed8}
-.info-block{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:24px;margin-bottom:20px}
-.info-block h3{margin-bottom:12px}
-.hash{font-family:monospace;font-size:13px;color:#4b5563;word-break:break-all;background:#f3f4f6;padding:10px;border-radius:6px;margin:8px 0}
-footer{margin-top:60px;text-align:center;color:#9ca3af;font-size:14px}
+*{margin:0;padding:0;box‑sizing:border‑box;font‑family:system‑ui,‑apple‑system,BlinkMacSystemFont,Segoe UI,Roboto}
+body{background:#f7f8fa;color:#1f2937;padding:48px 20px;max‑width:860px;margin:0 auto}
+header{text‑align:center;margin‑bottom:48px}
+h1{font‑size:38px;margin‑bottom:10px}
+.subtitle{color:#6b7280;font‑size:18px;margin‑bottom:24px}
+.download‑wrap{display:grid;grid‑template‑columns:1fr 1fr;gap:20px;margin‑bottom:48px}
+@media(max‑width:600px){.download‑wrap{grid‑template‑columns:1fr}}
+.download‑card{background:#fff;border:1px solid #e5e7eb;border‑radius:12px;padding:32px 28px;text‑align:center}
+.download‑card h3{margin‑bottom:14px;font‑size:20px}
+.download‑card .file‑info{color:#6b7280;font‑size:15px;margin‑bottom:24px;line‑height:1.5}
+.dl‑btn{display:inline‑block;padding:12px 32px;background:#2563eb;color:#fff;text‑decoration:none;border‑radius:8px;font‑weight:600;font‑size:16px}
+.dl‑btn:hover{background:#1d4ed8}
+.info‑block{background:#fff;border:1px solid #e5e7eb;border‑radius:12px;padding:24px;margin‑bottom:20px}
+.info‑block h3{margin‑bottom:12px}
+.hash{font‑family:monospace;font‑size:13px;color:#4b5563;word‑break:break‑all;background:#f3f4f6;padding:10px;border‑radius:6px;margin:8px 0}
+footer{margin‑top:60px;text‑align:center;color:#9ca3af;font‑size:14px}
+.loading{color:#888}
 </style>
 </head>
 <body>
 <header>
-  <h1>TIOL-Image-Manager</h1>
-  <p class="subtitle">v0.1.1 — Test Fix macos issue · 发布 2025-08-25</p>
+  <h1>TIOL‑Image‑Manager</h1>
+  <p class="subtitle" id="verText"><span class="loading">正在读取版本信息…</span></p>
 </header>
 
-<section class="download-wrap">
-  <div class="download-card">
+<section class="download‑wrap">
+  <div class="download‑card">
     <h3>Windows x64 便携版</h3>
-    <p class="file-info">TIOL-win64-portable.zip<br>17.2 MB</p>
-    <a class="dl-btn" href="https://github.com/sclass53/TIOL/releases/download/v0.1.1/TIOL-win64-portable.zip" download="TIOL-win64-portable.zip">下载 Windows</a>
+    <p class="file‑info" id="winFile">‑</p>
+    <a id="winBtn" class="dl‑btn" href="#">下载 Windows</a>
   </div>
-  <div class="download-card">
+  <div class="download‑card">
     <h3>macOS arm64</h3>
-    <p class="file-info">TIOL-macos-arm64.zip<br>20 MB</p>
-    <a class="dl-btn" href="https://github.com/sclass53/TIOL/releases/download/v0.1.1/TIOL-macos-arm64.zip" download="TIOL-macos-arm64.zip">下载 macOS</a>
+    <p class="file‑info" id="macFile">‑</p>
+    <a id="macBtn" class="dl‑btn" href="#">下载 macOS</a>
   </div>
 </section>
 
-<section class="info-block">
-  <h3>SHA256 文件校验</h3>
+<section class="info‑block">
+  <h3>SHA256 文件校验（需随新版本手动更新）</h3>
   <p>Windows 便携版：</p>
-  <div class="hash">65c41a4ef93574dfb0ce2398cf45533fbe75206b2446b6dae43efc00285f13b4</div>
+  <div class="hash">【每次新版本手动粘贴Windows SHA256】</div>
   <p>macOS arm64：</p>
-  <div class="hash">31c52d9e5fe86b9734a0c314861d7084950dadf308de822cb5f76bab6e661eca</div>
+  <div class="hash">【每次新版本手动粘贴macOS SHA256】</div>
 </section>
 
-<section class="info-block">
-  <h3>更新日志 v0.1.1</h3>
-  <p>• Test Fix macos issue（修复 macOS 相关问题）</p>
+<section class="info‑block">
+  <h3>更新日志</h3>
+  <div id="releaseBody">
+  <p class="loading">加载更新日志…</p>
+  </div>
   <br>
-  <p>项目仓库：<a href="https://github.com/sclass53/TIOL" target="_blank">github.com/sclass53/TIOL</a></p>
+  <p>项目仓库：<a href="https://github.com/sclass53/TIOL‑Image‑Manager" target="_blank">github.com/sclass53/TIOL‑Image‑Manager</a></p>
 </section>
 
 <footer>
-© TIOL-Image-Manager | 软件托管于 GitHub Releases
+© TIOL‑Image‑Manager | 软件托管于 GitHub Releases
 </footer>
+
+<script>
+// 读取仓库最新release
+const apiUrl = "https://api.github.com/repos/sclass53/TIOL-Image-Manager/releases/latest";
+async function loadRelease(){
+  const res = await fetch(apiUrl);
+  const data = await res.json();
+  // 版本标题
+  document.getElementById("verText").innerText = `${data.tag_name} · ${new Date(data.published_at).toLocaleDateString()}`;
+  document.getElementById("releaseBody").innerText = data.body;
+
+  // 筛选两个包
+  const winAsset = data.assets.find(a=>a.name.includes("win64‑portable"));
+  const macAsset = data.assets.find(a=>a.name.includes("macos‑arm64"));
+
+  if(winAsset){
+    document.getElementById("winFile").innerText = `${winAsset.name}\n${(winAsset.size/1024/1024).toFixed(1)} MB`;
+    document.getElementById("winBtn").href = winAsset.browser_download_url;
+    document.getElementById("winBtn").download = winAsset.name;
+  }
+  if(macAsset){
+    document.getElementById("macFile").innerText = `${macAsset.name}\n${(macAsset.size/1024/1024).toFixed(1)} MB`;
+    document.getElementById("macBtn").href = macAsset.browser_download_url;
+    document.getElementById("macBtn").download = macAsset.name;
+  }
+}
+loadRelease().catch(err=>{
+  document.getElementById("verText").innerText = "版本读取失败，请访问GitHub仓库查看最新版";
+});
+</script>
 </body>
 </html>
