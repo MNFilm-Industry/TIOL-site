@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TIOL-Image-Manager 下载</title>
+    <title>TIOL — AI Local Photo Manager</title>
     <style>
-        /* ---------- 重置 & 基础 ---------- */
+        /* ---------- Reset & Base ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -14,43 +14,50 @@
 
         body {
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background: #f5f6f8;
+            background: #f7f8fa;
             color: #1e293b;
             padding: 40px 20px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            line-height: 1.5;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 960px;
             width: 100%;
             background: #ffffff;
-            border-radius: 16px;
-            padding: 40px 36px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-            flex: 1;
+            border-radius: 20px;
+            padding: 48px 44px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
-        /* ---------- 头部 ---------- */
+        /* ---------- Header ---------- */
         .header {
             text-align: center;
-            padding-bottom: 28px;
-            border-bottom: 1px solid #e9edf2;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #eef1f5;
             margin-bottom: 32px;
         }
 
         .header h1 {
-            font-size: 32px;
-            font-weight: 600;
-            letter-spacing: -0.3px;
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
             color: #0b1e3a;
         }
 
-        .header .version {
+        .header .tagline {
+            font-size: 18px;
+            font-weight: 400;
+            color: #3b4e62;
             margin-top: 6px;
-            font-size: 16px;
+        }
+
+        .header .version {
+            margin-top: 10px;
+            font-size: 15px;
             color: #6b7a8f;
             font-weight: 400;
         }
@@ -59,48 +66,97 @@
             color: #9aa6b5;
         }
 
-        /* ---------- 示例图片 ---------- */
+        /* ---------- Screenshot ---------- */
         .screenshot {
-            margin: 12px 0 28px 0;
+            margin: 8px 0 36px 0;
             text-align: center;
         }
 
         .screenshot img {
             max-width: 100%;
             height: auto;
-            border-radius: 10px;
+            border-radius: 14px;
             border: 1px solid #e2e7ed;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
             display: block;
             margin: 0 auto;
         }
 
-        /* ---------- 下载卡片 (双列) ---------- */
+        /* ---------- Features ---------- */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 30px;
+            background: #fafbfc;
+            border-radius: 16px;
+            padding: 28px 30px;
+            margin-bottom: 36px;
+            border: 1px solid #eef1f5;
+        }
+
+        .features h2 {
+            grid-column: 1 / -1;
+            font-size: 22px;
+            font-weight: 600;
+            color: #0b1e3a;
+            margin-bottom: 4px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .feature-item .icon {
+            font-size: 20px;
+            line-height: 1.4;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .feature-item .text {
+            font-size: 15px;
+            color: #1f3347;
+        }
+
+        .feature-item .text strong {
+            font-weight: 600;
+            color: #0b1e3a;
+        }
+
+        /* ---------- Download Cards ---------- */
         .download-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin-bottom: 36px;
+            margin-bottom: 40px;
         }
 
         .card {
             background: #fafbfc;
             border: 1px solid #e2e7ed;
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 28px 20px 24px;
             text-align: center;
             transition: border-color 0.15s;
         }
 
         .card:hover {
-            border-color: #b8c6d8;
+            border-color: #b0c0d4;
         }
 
         .card h3 {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600;
             color: #0f293f;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
+        }
+
+        .card .platform-note {
+            font-size: 13px;
+            color: #7a8a9e;
+            margin-bottom: 6px;
         }
 
         .card .file-name {
@@ -140,24 +196,51 @@
             background: #0e3a96;
         }
 
-        /* ---------- 信息区块 ---------- */
+        .linux-note {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 14px;
+            color: #5b6f84;
+            background: #f0f2f6;
+            padding: 10px 16px;
+            border-radius: 40px;
+            margin-top: 4px;
+        }
+
+        .linux-note a {
+            color: #1a5bdb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .linux-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- Quick Start / Info ---------- */
         .info-section {
-            border-top: 1px solid #e9edf2;
+            border-top: 1px solid #eef1f5;
             padding-top: 28px;
             margin-top: 8px;
         }
 
         .info-section h3 {
-            font-size: 17px;
+            font-size: 18px;
             font-weight: 600;
             color: #0b1e3a;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
-        .info-section p {
+        .info-section p,
+        .info-section li {
             font-size: 15px;
-            color: #33475b;
-            line-height: 1.6;
+            color: #2d4055;
+            line-height: 1.7;
+        }
+
+        .info-section ul {
+            padding-left: 22px;
+            margin: 6px 0 12px 0;
         }
 
         .info-section a {
@@ -170,21 +253,51 @@
             text-decoration: underline;
         }
 
-        .info-section .repo-link {
-            display: inline-block;
-            margin-top: 6px;
+        .code-block {
+            background: #f0f2f6;
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin: 8px 0 16px 0;
+            border: 1px solid #e2e7ed;
+            color: #1a2b3c;
         }
 
-        /* ---------- 页脚 ---------- */
+        .data-locations {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 30px;
+            background: #f8f9fb;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-top: 8px;
+            border: 1px solid #eef1f5;
+        }
+
+        .data-locations .loc-item {
+            font-size: 14px;
+            color: #1f3347;
+        }
+
+        .data-locations .loc-item strong {
+            font-weight: 600;
+            color: #0b1e3a;
+        }
+
+        /* ---------- Footer ---------- */
         .footer {
-            margin-top: 36px;
+            margin-top: 40px;
             text-align: center;
-            font-size: 13px;
+            font-size: 14px;
             color: #8e9daf;
-            border-top: 1px solid #e9edf2;
+            border-top: 1px solid #eef1f5;
             padding-top: 24px;
             width: 100%;
-            max-width: 800px;
+            max-width: 960px;
         }
 
         .footer a {
@@ -197,14 +310,27 @@
             text-decoration: underline;
         }
 
-        /* ---------- 响应式 ---------- */
-        @media (max-width: 680px) {
+        /* ---------- Responsive ---------- */
+        @media (max-width: 720px) {
             .container {
                 padding: 28px 18px;
             }
 
             .header h1 {
-                font-size: 26px;
+                font-size: 30px;
+            }
+
+            .header .tagline {
+                font-size: 16px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                padding: 22px 18px;
+            }
+
+            .features h2 {
+                font-size: 20px;
             }
 
             .download-grid {
@@ -224,38 +350,40 @@
                 max-width: 220px;
             }
 
-            .info-section {
-                padding-top: 22px;
+            .data-locations {
+                grid-template-columns: 1fr;
+                gap: 8px;
             }
 
             .info-section h3 {
-                font-size: 16px;
+                font-size: 17px;
             }
 
-            .info-section p {
-                font-size: 14px;
+            .linux-note {
+                font-size: 13px;
+                padding: 8px 14px;
             }
         }
 
-        @media (max-width: 420px) {
+        @media (max-width: 440px) {
             body {
-                padding: 20px 12px;
+                padding: 20px 10px;
             }
 
             .container {
-                padding: 20px 14px;
+                padding: 20px 12px;
             }
 
             .header h1 {
-                font-size: 22px;
+                font-size: 24px;
             }
 
-            .header .version {
+            .header .tagline {
                 font-size: 14px;
             }
 
             .card h3 {
-                font-size: 16px;
+                font-size: 17px;
             }
 
             .card .file-name {
@@ -268,8 +396,13 @@
                 min-width: 100px;
             }
 
+            .code-block {
+                font-size: 12px;
+                padding: 10px 12px;
+            }
+
             .screenshot {
-                margin: 8px 0 20px 0;
+                margin: 4px 0 24px 0;
             }
         }
     </style>
@@ -281,15 +414,45 @@
 
         <!-- 头部 -->
         <div class="header">
-            <h1>TIOL‑Image‑Manager</h1>
+            <h1>TIOL</h1>
+            <p class="tagline">AI Local Photo Manager — Privacy-first, offline-first</p>
             <div class="version" id="verText">
-                <span class="loading">读取版本中…</span>
+                <span class="loading">Loading version…</span>
             </div>
         </div>
 
         <!-- 示例图片 -->
         <div class="screenshot">
-            <img src="example.png" alt="TIOL-Image-Manager 界面预览" />
+            <img src="example.png" alt="TIOL Interface Preview" />
+        </div>
+
+        <!-- 特性 -->
+        <div class="features">
+            <h2>✨ Key Features</h2>
+            <div class="feature-item">
+                <span class="icon">💻</span>
+                <span class="text"><strong>Multi‑platform</strong> — Windows, macOS, Linux. Supports CUDA, CPU, Apple CoreML.</span>
+            </div>
+            <div class="feature-item">
+                <span class="icon">📁</span>
+                <span class="text"><strong>Directory Management</strong> — Add/remove folders, auto‑detect new/modified files.</span>
+            </div>
+            <div class="feature-item">
+                <span class="icon">🔍</span>
+                <span class="text"><strong>Dual‑path Search</strong> — Semantic search (e.g., <em>"a cup of coffee"</em>) + lightning‑fast SQL tag search.</span>
+            </div>
+            <div class="feature-item">
+                <span class="icon">🏷️</span>
+                <span class="text"><strong>Custom AI Tags</strong> — Define any labels (Chinese/English) and tag on demand with one click.</span>
+            </div>
+            <div class="feature-item">
+                <span class="icon">🧠</span>
+                <span class="text"><strong>Flexible AI Engine</strong> — Auto, GPU, CPU, or Apple CoreML (macOS Neural Engine). All local.</span>
+            </div>
+            <div class="feature-item">
+                <span class="icon">🔒</span>
+                <span class="text"><strong>Model Lockdown</strong> — SHA256 checksum, resumable downloads, auto‑repair, fallback mirrors.</span>
+            </div>
         </div>
 
         <!-- 下载卡片 -->
@@ -297,34 +460,51 @@
             <!-- Windows -->
             <div class="card">
                 <h3>Windows x64</h3>
+                <p class="platform-note">Portable edition</p>
                 <span class="file-name" id="winFile">—</span>
                 <br />
-                <a id="winBtn" class="btn" href="#" download>下载</a>
+                <a id="winBtn" class="btn" href="#" download>Download</a>
             </div>
             <!-- macOS -->
             <div class="card">
                 <h3>macOS arm64</h3>
+                <p class="platform-note">Apple Silicon</p>
                 <span class="file-name" id="macFile">—</span>
                 <br />
-                <a id="macBtn" class="btn" href="#" download>下载</a>
+                <a id="macBtn" class="btn" href="#" download>Download</a>
+            </div>
+            <!-- Linux note -->
+            <div class="linux-note">
+                🐧 <strong>Linux</strong> builds are also available — grab them from the 
+                <a href="https://github.com/sclass53/TIOL/releases" target="_blank" rel="noopener">GitHub Releases</a> page.
             </div>
         </div>
 
-        <!-- 信息 -->
+        <!-- 快速开始 + 信息 -->
         <div class="info-section">
-            <h3>更新日志</h3>
+            <h3>🚀 Quick Start (Development)</h3>
+            <div class="code-block">
+                # Dependencies: Rust 1.70+, tauri-cli 2.x (macOS: Xcode CLT, Windows: VS Build Tools)<br />
+                cargo tauri dev        # development mode<br />
+                cargo tauri build      # production build
+            </div>
             <p>
-                完整更新记录请查看
-                <a href="https://github.com/sclass53/TIOL-Image-Manager/releases" target="_blank" rel="noopener">
-                    GitHub Releases
-                </a>
-                。
+                On first launch, the AI model (~412 MB) is downloaded automatically.<br />
+                <strong>Windows:</strong> copy <code>vendor/onnxruntime/win-x64/onnxruntime.dll</code> to the executable directory.<br />
+                <strong>macOS:</strong> requires a universal2 <code>onnxruntime.dylib</code> (with CoreML EP). See <a href="https://github.com/sclass53/TIOL/blob/main/BUILD.md" target="_blank" rel="noopener">BUILD.md</a> for details.
             </p>
-            <p class="repo-link">
-                📂 项目仓库：
-                <a href="https://github.com/sclass53/TIOL-Image-Manager" target="_blank" rel="noopener">
-                    github.com/sclass53/TIOL-Image-Manager
-                </a>
+
+            <h3 style="margin-top: 22px;">📂 Data Locations</h3>
+            <div class="data-locations">
+                <div class="loc-item"><strong>Database / thumbnails</strong><br />Windows: <code>%APPDATA%\com.tiol.desktop</code><br />macOS: <code>~/Library/Application Support/com.tiol.desktop</code></div>
+                <div class="loc-item"><strong>AI models</strong><br />Windows: <code>%LOCALAPPDATA%\com.tiol.desktop\models</code><br />macOS: <code>~/Library/Caches/com.tiol.desktop/models</code></div>
+            </div>
+
+            <p style="margin-top: 18px;">
+                📦 <strong>Installers &amp; portable editions</strong> — 
+                <a href="https://github.com/sclass53/TIOL/releases" target="_blank" rel="noopener">GitHub Releases</a>
+                &nbsp;·&nbsp;
+                📖 <a href="https://github.com/sclass53/TIOL" target="_blank" rel="noopener">Project Repository</a>
             </p>
         </div>
 
@@ -332,11 +512,8 @@
 
     <!-- 页脚 -->
     <div class="footer">
-        TIOL‑Image‑Manager &nbsp;·&nbsp;
-        托管于
-        <a href="https://github.com/MNFilm-Industry/TIOL-site" target="_blank" rel="noopener">
-            TIOL‑site 仓库
-        </a>
+        TIOL &nbsp;·&nbsp; Privacy-first, local-first photo management &nbsp;·&nbsp;
+        Hosted on <a href="https://github.com/MNFilm-Industry/TIOL-site" target="_blank" rel="noopener">TIOL‑site</a>
     </div>
 
     <!-- ===== 脚本 ===== -->
@@ -369,21 +546,21 @@
                     if (!resp.ok) throw new Error('HTTP ' + resp.status);
                     const data = await resp.json();
 
-                    let label = data.tag || data.version || '未知版本';
+                    let label = data.tag || data.version || 'unknown version';
                     if (data.updated) {
                         let dateStr = '';
                         try {
                             const d = new Date(data.updated);
                             if (!isNaN(d)) {
-                                dateStr = d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'short', day: 'numeric' });
+                                dateStr = d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
                             }
                         } catch (_) { /* ignore */ }
                         if (dateStr) label += ' · ' + dateStr;
                     }
                     verEl.textContent = label;
                 } catch (_) {
-                    verEl.textContent = '⚠️ 版本加载失败';
-                    console.warn('[TIOL] version.json 加载失败');
+                    verEl.textContent = '⚠️ Version load failed';
+                    console.warn('[TIOL] version.json load failed');
                 }
             }
 
