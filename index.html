@@ -44,54 +44,60 @@ footer{margin‑top:60px;text‑align:center;color:#9ca3af;font‑size:14px}
 </section>
 
 <section class="info‑block">
-  <h3>SHA256 文件校验（需随新版本手动更新）</h3>
-  <p>Windows 便携版：</p>
-  <div class="hash">【每次新版本手动粘贴Windows SHA256】</div>
-  <p>macOS arm64：</p>
-  <div class="hash">【每次新版本手动粘贴macOS SHA256】</div>
-</section>
-
-<section class="info‑block">
   <h3>更新日志</h3>
   <div id="releaseBody">
-  <p class="loading">加载更新日志…</p>
+    <p>请查看 <a href="https://github.com/sclass53/TIOL‑Image‑Manager/releases" target="_blank">GitHub Releases</a> 获取完整更新日志。</p>
   </div>
   <br>
   <p>项目仓库：<a href="https://github.com/sclass53/TIOL‑Image‑Manager" target="_blank">github.com/sclass53/TIOL‑Image‑Manager</a></p>
 </section>
 
 <footer>
-© TIOL‑Image‑Manager | 软件托管于 GitHub Releases
+© TIOL‑Image‑Manager | 软件托管于 <a href="https://github.com/MNFilm-Industry/TIOL-site" target="_blank">TIOL-site 仓库</a>
 </footer>
 
 <script>
-// 读取仓库最新release
-const apiUrl = "https://api.github.com/repos/sclass53/TIOL-Image-Manager/releases/latest";
-async function loadRelease(){
-  const res = await fetch(apiUrl);
-  const data = await res.json();
-  // 版本标题
-  document.getElementById("verText").innerText = `${data.tag_name} · ${new Date(data.published_at).toLocaleDateString()}`;
-  document.getElementById("releaseBody").innerText = data.body;
+// 基于仓库内部 version.json 和 releases/latest/ 目录
+const versionUrl = '/version.json';
 
-  // 筛选两个包
-  const winAsset = data.assets.find(a=>a.name.includes("win64‑portable"));
-  const macAsset = data.assets.find(a=>a.name.includes("macos‑arm64"));
+// 固定文件名（与 workflow 保持一致）
+const WIN_ZIP = 'TIOL-win64-portable.zip';
+const MAC_ZIP = 'TIOL-macos-arm64.zip';
 
-  if(winAsset){
-    document.getElementById("winFile").innerText = `${winAsset.name}\n${(winAsset.size/1024/1024).toFixed(1)} MB`;
-    document.getElementById("winBtn").href = winAsset.browser_download_url;
-    document.getElementById("winBtn").download = winAsset.name;
-  }
-  if(macAsset){
-    document.getElementById("macFile").innerText = `${macAsset.name}\n${(macAsset.size/1024/1024).toFixed(1)} MB`;
-    document.getElementById("macBtn").href = macAsset.browser_download_url;
-    document.getElementById("macBtn").download = macAsset.name;
+async function loadFromRepo() {
+  try {
+    const res = await fetch(versionUrl);
+    if (!res.ok) throw new Error('version.json 加载失败');
+    const data = await res.json();
+
+    // 提取版本信息
+    const version = data.version || '未知版本';
+    const tag = data.tag || 'v' + version;
+    const updated = data.updated ? new Date(data.updated).toLocaleDateString('zh-CN') : '';
+
+    // 显示版本号
+    document.getElementById('verText').innerText = `${tag} · ${updated}`;
+
+    // 设置下载链接（直接指向 latest 目录）
+    const winBtn = document.getElementById('winBtn');
+    const macBtn = document.getElementById('macBtn');
+    winBtn.href = `/releases/latest/${WIN_ZIP}`;
+    winBtn.download = WIN_ZIP;
+    macBtn.href = `/releases/latest/${MAC_ZIP}`;
+    macBtn.download = MAC_ZIP;
+
+    // 显示文件名（可省略大小）
+    document.getElementById('winFile').innerText = WIN_ZIP;
+    document.getElementById('macFile').innerText = MAC_ZIP;
+
+    // 注意：version.json 不含 SHA256，此处保留手动占位符
+  } catch (err) {
+    document.getElementById('verText').innerText = '版本读取失败，请稍后重试';
+    console.warn('获取 version.json 失败:', err);
   }
 }
-loadRelease().catch(err=>{
-  document.getElementById("verText").innerText = "版本读取失败，请访问GitHub仓库查看最新版";
-});
+
+loadFromRepo();
 </script>
 </body>
 </html>
