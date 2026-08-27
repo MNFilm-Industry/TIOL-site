@@ -79,44 +79,104 @@
             margin: 0 auto;
         }
 
-        /* ---------- Features (updated: 5 cards, auto-fit grid) ---------- */
-        .features {
+        /* ---------- Core Features (3 small cards) ---------- */
+        .features-core {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            margin: 32px 0 36px 0;
+            margin-bottom: 40px;
         }
 
-        .feature-item {
+        .feature-card {
             background: #fafbfc;
             border-radius: 14px;
-            padding: 22px 16px;
+            padding: 24px 18px;
             text-align: center;
             border: 1px solid #eef1f6;
             transition: border-color 0.15s;
         }
 
-        .feature-item:hover {
+        .feature-card:hover {
             border-color: #cbd5e1;
         }
 
-        .feature-item .icon {
-            font-size: 30px;
-            margin-bottom: 8px;
+        .feature-card .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
             display: block;
         }
 
-        .feature-item h4 {
+        .feature-card h4 {
             font-size: 17px;
             font-weight: 600;
             color: #0f293f;
             margin-bottom: 6px;
         }
 
-        .feature-item p {
+        .feature-card p {
             font-size: 14px;
             color: #4b5e75;
             line-height: 1.5;
+        }
+
+        /* ---------- Extra Features (2 large cards) ---------- */
+        .features-extra {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin: 8px 0 56px 0;
+        }
+
+        .feature-card-large {
+            background: #fafbfc;
+            border-radius: 16px;
+            padding: 36px 24px 32px;
+            text-align: center;
+            border: 1px solid #dce2ec;
+            transition: border-color 0.15s, box-shadow 0.15s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .feature-card-large:hover {
+            border-color: #b0c0d4;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 默认图片样式（适用于所有） */
+        .feature-card-large .feature-img {
+            display: block;
+            margin: 0 auto 18px;
+            border-radius: 12px;
+            background: #ffffff;
+            padding: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            width: 100%;
+            height: auto;
+        }
+
+        /* 第一张图片（明暗模式）单独放大 */
+        .feature-card-large:first-child .feature-img {
+            max-width: 280px;  /* 比原来的200px更大 */
+        }
+
+        /* 第二张图片（镜头过滤）保持原尺寸 */
+        .feature-card-large:last-child .feature-img {
+            max-width: 200px;
+        }
+
+        .feature-card-large h4 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #0f293f;
+            margin-bottom: 8px;
+        }
+
+        .feature-card-large p {
+            font-size: 15px;
+            color: #4b5e75;
+            line-height: 1.6;
+            max-width: 90%;
+            margin: 0 auto;
         }
 
         /* ---------- Download Cards ---------- */
@@ -254,17 +314,35 @@
                 font-size: 16px;
             }
 
-            .features {
+            .features-core {
                 gap: 16px;
+            }
+            .features-extra {
+                gap: 20px;
+                margin-bottom: 48px;
+            }
+            .feature-card-large {
+                padding: 28px 18px;
+            }
+            /* 响应式下调大图片尺寸 */
+            .feature-card-large:first-child .feature-img {
+                max-width: 220px;
+            }
+            .feature-card-large:last-child .feature-img {
+                max-width: 160px;
             }
         }
 
         @media (max-width: 600px) {
-            .features {
+            .features-core {
                 grid-template-columns: 1fr 1fr;
                 gap: 14px;
             }
-
+            .features-extra {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                margin-bottom: 40px;
+            }
             .download-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
@@ -281,6 +359,13 @@
             .card {
                 padding: 22px 16px 20px;
             }
+
+            .feature-card-large:first-child .feature-img {
+                max-width: 180px;
+            }
+            .feature-card-large:last-child .feature-img {
+                max-width: 140px;
+            }
         }
 
         @media (max-width: 420px) {
@@ -296,9 +381,18 @@
             .header .tagline {
                 font-size: 14px;
             }
-            .features {
+            .features-core {
                 grid-template-columns: 1fr;
                 gap: 12px;
+            }
+            .feature-card-large {
+                padding: 24px 16px;
+            }
+            .feature-card-large:first-child .feature-img {
+                max-width: 160px;
+            }
+            .feature-card-large:last-child .feature-img {
+                max-width: 120px;
             }
             .card h3 {
                 font-size: 16px;
@@ -330,35 +424,35 @@
             <img src="example.png" alt="TIOL-Image-Manager interface preview" />
         </div>
 
-        <!-- Feature Highlights – 5 cards now -->
-        <div class="features">
-            <!-- Existing 3 -->
-            <div class="feature-item">
+        <!-- ===== FEATURES ===== -->
+        <!-- Core features (3 small cards) -->
+        <div class="features-core">
+            <div class="feature-card">
                 <span class="icon">🏷️</span>
                 <h4>Tag Your Images</h4>
                 <p>Add custom keywords to any photo. Organize your photos with AI‑powered automatic tagging.</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-card">
                 <span class="icon">🔍</span>
                 <h4>Smart Semantic Searching</h4>
                 <p>Search for images with human language. Input "Sunset beach", and find that photo instantly.</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-card">
                 <span class="icon">⚡</span>
                 <h4>Lightweight & Cross‑Platform</h4>
                 <p>Small, fast, and portable. Works on Windows and macOS without heavy dependencies.</p>
             </div>
+        </div>
 
-            <!-- New: Light/Dark Mode -->
-            <div class="feature-item">
-                <span class="icon">🌓</span>
+        <!-- Extra features (2 large cards with images – first one larger) -->
+        <div class="features-extra">
+            <div class="feature-card-large">
+                <img src="ld.png" alt="Light and Dark Mode" class="feature-img" />
                 <h4>Light & Dark Mode</h4>
                 <p>Switch between light and dark themes to reduce eye strain and match your environment.</p>
             </div>
-
-            <!-- New: Lens Filtering -->
-            <div class="feature-item">
-                <span class="icon">🔎</span>
+            <div class="feature-card-large">
+                <img src="lens.png" alt="Lens Filtering" class="feature-img" />
                 <h4>Lens Filtering</h4>
                 <p>Filter your library by lens model, focal length, or aperture – find shots taken with specific gear.</p>
             </div>
