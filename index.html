@@ -23,7 +23,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 960px;
             width: 100%;
             background: #ffffff;
             border-radius: 20px;
@@ -79,10 +79,10 @@
             margin: 0 auto;
         }
 
-        /* ---------- Features (updated) ---------- */
+        /* ---------- Features (updated: 5 cards, auto-fit grid) ---------- */
         .features {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 24px;
             margin: 32px 0 36px 0;
         }
@@ -90,9 +90,14 @@
         .feature-item {
             background: #fafbfc;
             border-radius: 14px;
-            padding: 22px 18px;
+            padding: 22px 16px;
             text-align: center;
             border: 1px solid #eef1f6;
+            transition: border-color 0.15s;
+        }
+
+        .feature-item:hover {
+            border-color: #cbd5e1;
         }
 
         .feature-item .icon {
@@ -223,7 +228,7 @@
             border-top: 1px solid #edf0f5;
             padding-top: 24px;
             width: 100%;
-            max-width: 900px;
+            max-width: 960px;
         }
 
         .footer a {
@@ -250,14 +255,13 @@
             }
 
             .features {
-                grid-template-columns: 1fr 1fr;
                 gap: 16px;
             }
         }
 
         @media (max-width: 600px) {
             .features {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 14px;
             }
 
@@ -292,6 +296,10 @@
             .header .tagline {
                 font-size: 14px;
             }
+            .features {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
             .card h3 {
                 font-size: 16px;
             }
@@ -322,12 +330,13 @@
             <img src="example.png" alt="TIOL-Image-Manager interface preview" />
         </div>
 
-        <!-- Feature Highlights (updated: Tagging, Search by Tags, Lightweight & Cross-platform) -->
+        <!-- Feature Highlights – 5 cards now -->
         <div class="features">
+            <!-- Existing 3 -->
             <div class="feature-item">
                 <span class="icon">🏷️</span>
                 <h4>Tag Your Images</h4>
-                <p>Add custom keywords to any photo. Organize your photos with ai-powered automatic tagging.</p>
+                <p>Add custom keywords to any photo. Organize your photos with AI‑powered automatic tagging.</p>
             </div>
             <div class="feature-item">
                 <span class="icon">🔍</span>
@@ -338,6 +347,20 @@
                 <span class="icon">⚡</span>
                 <h4>Lightweight & Cross‑Platform</h4>
                 <p>Small, fast, and portable. Works on Windows and macOS without heavy dependencies.</p>
+            </div>
+
+            <!-- New: Light/Dark Mode -->
+            <div class="feature-item">
+                <span class="icon">🌓</span>
+                <h4>Light & Dark Mode</h4>
+                <p>Switch between light and dark themes to reduce eye strain and match your environment.</p>
+            </div>
+
+            <!-- New: Lens Filtering -->
+            <div class="feature-item">
+                <span class="icon">🔎</span>
+                <h4>Lens Filtering</h4>
+                <p>Filter your library by lens model, focal length, or aperture – find shots taken with specific gear.</p>
             </div>
         </div>
 
