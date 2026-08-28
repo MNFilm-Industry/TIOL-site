@@ -1,1 +1,9 @@
-{"version": "0.5.1", "tag": "v0.5.1", "updated": "2026-08-28T05:34:35Z"}
+{
+  "version": "0.6.0",
+  "tag": "v0.6.0",
+  "updated": "2026-08-28T09:01:22Z",
+  "platforms": {
+    "windows": { "sha256": "31a3f79c0fa4f921b84f9eab62c01d55ca7e92a925405481bf338e7eef8e9223", "url": "https://tiol.netlify.app/releases/latest/TIOL-win64-portable.zip" },
+    "macos": { "sha256": "", "url": "https://tiol.netlify.app/releases/latest/TIOL-macos-arm64.zip" }
+  }
+}
