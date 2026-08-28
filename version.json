@@ -1,9 +1,9 @@
 {
-  "version": "1.0.0",
-  "tag": "v1.0.0",
-  "updated": "2026-08-28T14:16:25Z",
+  "version": "1.0.1",
+  "tag": "v1.0.1",
+  "updated": "2026-08-28T15:41:27Z",
   "platforms": {
-    "windows": { "sha256": "730ec040d2acd27dad258a11b86ec420ebc0a894cb16f131f909075f49ab555d", "url": "https://tiol.netlify.app/releases/latest/TIOL-win64-portable.zip" },
-    "macos": { "sha256": "a4793f1f46cc4206aec36983efae515ca7383ac5e3a3a9cee882223d5c56d051", "url": "https://tiol.netlify.app/releases/latest/TIOL-macos-arm64.zip" }
+    "windows": { "sha256": "0097c464b1019feb4b34f8d4ece1cb709e934d68d4796ab06ebebd19aa594777", "url": "https://tiol.netlify.app/releases/latest/TIOL-win64-portable.zip" },
+    "macos": { "sha256": "8d53aef345586c8f448169441812be882b13f00234ed23508189ece99c62358e", "url": "https://tiol.netlify.app/releases/latest/TIOL-macos-arm64.zip" }
   }
 }
