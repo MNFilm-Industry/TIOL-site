@@ -1119,13 +1119,18 @@
                 transform: none;
             }
         }
-        /* 专门缩小纵向 lens.png 图片 */
+        /* 缩小 lens.png 图片及其外框 */
+        .alt-img .frame:has(img[src="lens.png"]) {
+            max-width: 280px;
+            margin: 0 auto;
+            padding: 10px;
+        }
         .alt-img .frame img[src="lens.png"] {
-            max-width: 240px;      /* 限制最大宽度 */
-            width: 100%;           /* 在小屏幕上仍然自适应 */
+            max-width: 250px;
+            width: 100%;
             height: auto;
             display: block;
-            margin: 0 auto;        /* 在 frame 内居中 */
+            margin: 0 auto;
         }
     </style>
 </head>
