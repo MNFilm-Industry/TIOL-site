@@ -1119,6 +1119,14 @@
                 transform: none;
             }
         }
+        /* 专门缩小纵向 lens.png 图片 */
+        .alt-img .frame img[src="lens.png"] {
+            max-width: 240px;      /* 限制最大宽度 */
+            width: 100%;           /* 在小屏幕上仍然自适应 */
+            height: auto;
+            display: block;
+            margin: 0 auto;        /* 在 frame 内居中 */
+        }
     </style>
 </head>
 <body>
@@ -1333,14 +1341,14 @@
 
                 <div class="altrow">
                     <div class="alt-img" data-reveal>
-                        <div class="frame hud"><img src="lens.png" alt="TIOL 镜头筛选" /></div>
+                        <div class="frame hud hud-small"><img src="lens.png" alt="TIOL 镜头筛选" /></div>
                     </div>
                     <div class="alt-txt" data-reveal style="transition-delay:.1s">
                         <div class="alt-tag"><span class="lang-en">Metadata</span><span class="lang-zh">元数据</span></div>
                         <h3><span class="lang-en">Lens &amp; camera metadata</span><span class="lang-zh">镜头与相机元数据</span></h3>
                         <p>
-                            <span class="lang-en">Filter your library by lens, camera body, or focal length. Need the compression of an 85mm, or everything shot wide at 24mm? It's one click — read straight from each file.</span>
-                            <span class="lang-zh">按镜头、相机机身或焦距筛选图库。需要 85mm 的压缩感，或者 24mm 广角拍摄的所有照片？只需一次点击——直接从每个文件中读取。</span>
+                            <span class="lang-en">Filter your library by lens, camera body, or focal length. Need the compression of an 85mm, or everything shot wide at 24mm? It's one click — read straight from EXIF.</span>
+                            <span class="lang-zh">按镜头、相机机身或焦距筛选图库。需要 85mm 的压缩感，或者 24mm 广角拍摄的所有照片？只需一次点击——直接从EXIF中读取信息。</span>
                         </p>
                         <div class="alt-note">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/></svg>
